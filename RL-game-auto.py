@@ -304,13 +304,13 @@ if TRAIN():
             })
 
         # Salva modelo específico para cada config
-        model_name = f'../output/models/q_learning_model_{idx}.pkl'
+        model_name = f'./output/models/q_learning_model_{idx}.pkl'
         agent.save_model(model_name)
         print(f"Modelo da config nº{idx} salvo como {model_name}")
         
     # Salva resultados em um único arquivo CSV
     df = pd.DataFrame(summary_results)
-    csv_name = '../output/train_summary_results.csv'
+    csv_name = './output/train_summary_results.csv'
     df.to_csv(csv_name, index=False)
     print(f"Resultados de treino salvos em {csv_name}")
         
@@ -337,7 +337,7 @@ else:
             
         # Load the trained agent
         agent = QLearningAgent(env.action_space, ALPHA(), GAMMA(), 0)
-        model_name = f'../output/models/q_learning_model_{idx}.pkl'
+        model_name = f'./output/models/q_learning_model_{idx}.pkl'
         agent.load_model(model_name)
 
         for episode in range(test_episodes):
@@ -369,5 +369,5 @@ else:
         })
 
     df = pd.DataFrame(summary_results)
-    df.to_csv('../output/test_summary_results.csv', index=False)
+    df.to_csv('./output/test_summary_results.csv', index=False)
     print("Resultados de teste salvos em '../output/test_summary_results.csv'")

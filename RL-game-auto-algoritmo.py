@@ -251,7 +251,7 @@ if TRAIN():
         model.learn(total_timesteps=SIMMULATION_NUMBER())
 
         # Save model
-        model_path = f"../output/models/sb3_dqn_model_{idx}"
+        model_path = f"./output/models/sb3_dqn_model_{idx}"
         model.save(model_path)
 
 # Test the trained agent
@@ -275,7 +275,7 @@ else:
             env.render()
             
         # Load the trained agent
-        model_path = f"../output/models/sb3_dqn_model_{idx}"
+        model_path = f"./output/models/sb3_dqn_model_{idx}"
         model = DQN.load(model_path)
 
 
@@ -308,5 +308,5 @@ else:
         })
 
     df = pd.DataFrame(summary_results)
-    df.to_csv('../output/test_summary_results_sb3_dqn.csv', index=False)
-    print("Resultados de teste salvos em '../output/test_summary_results_sb3_dqn.csv'")
+    df.to_csv('./output/test_summary_results_sb3_dqn.csv', index=False)
+    print("Resultados de teste salvos em './output/test_summary_results_sb3_dqn.csv'")
